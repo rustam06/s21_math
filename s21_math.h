@@ -4,6 +4,7 @@
 #define EXP 2.718281828459045
 
 int s21_abs(int x);
+long double s21_fabs(double x);
 long double s21_exp(double x);
 long double s21_sin(double x);
 long double s21_cos(double x);
