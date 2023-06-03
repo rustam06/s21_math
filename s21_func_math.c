@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 #include "s21_math.h"
 
 int s21_abs(int x) { return x >= 0 ? x : x * -1; }
@@ -19,7 +18,7 @@ long double s21_exp(double x) {
 }
 
 long double s21_sin(double x) {
-  long double sum, an, n, E = s21_pow(10, -15);
+  long double sum, an, n, E = 1e-15;
   sum = x;
   an = x;
   n = 0;
@@ -34,7 +33,7 @@ long double s21_sin(double x) {
 }
 
 long double s21_cos(double x) {
-  long double sum, an, n, E = s21_pow(10, -15);
+  long double sum, an, n, E = 1e-15;
   sum = 1;
   an = 1;
   n = 1;

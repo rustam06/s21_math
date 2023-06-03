@@ -13,6 +13,11 @@ s21_math.o: s21_math.c
 s21_func_math.o: s21_func_math.c
 	$(GCCC) 
 
+git:
+	git add .
+	git commit -m "fix"
+	git push origin
+
 check: 
 	clang-format -i *.c *.h 
 	cppcheck —enable=all —suppress=missingIncludeSystem *.c 
