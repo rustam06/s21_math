@@ -9,5 +9,10 @@ long double s21_exp(double x);
 long double s21_sin(double x);
 long double s21_cos(double x);
 long double s21_pow(double base, double exp);
+long double s21_tan(double x);
+long double s21_atan(double x);
+long double s21_asin(double x);
+long double s21_sqrt(double x);
+long double s21_asin(double x);
 
 #endif
