@@ -2,6 +2,7 @@
 #define HEADER_FILE_H
 
 #define EXP 2.718281828459045
+#define E 0.000000001
 
 int s21_abs(int x);
 long double s21_fabs(double x);

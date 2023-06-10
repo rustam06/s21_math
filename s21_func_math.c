@@ -10,21 +10,21 @@ long double s21_fabs(double x) {
   return x > 0 ? res : res * -1;
 }
 
-//ошибка
 long double s21_exp(double x) {
-  long double e = 1;
-  double count = s21_abs(x);
-  for (int i = 0; i < count; i++) {
-    e *= EXP;
+  long double e = 1, res = 1;
+  int n = 1;
+  while (s21_fabs(e) > E) {
+    e *= x / n;
+    res += e;
+    n++;
   }
-  return x > 0 ? e : 1 / e;
+  return res;
 }
 
-
-//ошибка
+// ошибка
 long double s21_pow(double base, double exp) {
   long double res = base;
-  double count = exp;
+  double count = exp - 1;
   while (count) {
     res *= res;
     count--;
@@ -32,8 +32,9 @@ long double s21_pow(double base, double exp) {
   return res;
 }
 
+
 long double s21_sin(double x) {
-  long double sum, an, n, E = 1e-7;
+  long double sum, an, n;
   sum = x;
   an = x;
   n = 0;
@@ -47,8 +48,16 @@ long double s21_sin(double x) {
   return sum;
 }
 
+long double s21_asin(double x) {
+  long double res = 0;
+  if (s21_fabs(x) <= 1) {
+    res = s21_atan(x / s21_sqrt(1 - x * x));
+  }
+  return res;
+}
+
 long double s21_cos(double x) {
-  long double sum, an, n, E = 1e-7;
+  long double sum, an, n;
   sum = 1;
   an = 1;
   n = 1;
@@ -61,7 +70,6 @@ long double s21_cos(double x) {
 
   return sum;
 }
-
 
 
 long double s21_sqrt(double x) {
@@ -79,13 +87,7 @@ long double s21_sqrt(double x) {
   return guess;
 }
 
-long double s21_asin(double x) {
-  long double res = 0;
-  if (s21_fabs(x) <= 1) {
-    res = s21_atan(x / s21_sqrt(1 - x * x));
-  }
-  return res;
-}
+
 
 long double s21_tan(double x) {
   long double res = s21_sin(x) / s21_cos(x);
@@ -93,7 +95,7 @@ long double s21_tan(double x) {
 }
 
 long double s21_atan(double x) {
-  long double sum = x, an = x, E = 1e-7;
+  long double sum = x, an = x;
   const long double PI = 3.141592653589793;
   int n = 1;
   if (s21_fabs(x) > 1) {
@@ -107,4 +109,3 @@ long double s21_atan(double x) {
   }
   return sum;
 }
-
