@@ -1,6 +1,4 @@
-#include <math.h>
 #include <stdio.h>
-
 #include "s21_math.h"
 
 int s21_abs(int x) { return x >= 0 ? x : x * -1; }
@@ -8,17 +6,6 @@ int s21_abs(int x) { return x >= 0 ? x : x * -1; }
 long double s21_fabs(double x) {
   long double res = x;
   return x > 0 ? res : res * -1;
-}
-
-long double s21_exp(double x) {
-  long double e = 1, res = 1;
-  int n = 1;
-  while (s21_fabs(e) > E) {
-    e *= x / n;
-    res += e;
-    n++;
-  }
-  return res;
 }
 
 // ошибка
@@ -32,6 +19,16 @@ long double s21_pow(double base, double exp) {
   return res;
 }
 
+long double s21_exp(double x) {
+  long double e = 1, res = 1;
+  int n = 1;
+  while (s21_fabs(e) > E) {
+    e *= x / n;
+    res += e;
+    n++;
+  }
+  return res;
+}
 
 long double s21_sin(double x) {
   long double sum, an, n;
@@ -71,7 +68,6 @@ long double s21_cos(double x) {
   return sum;
 }
 
-
 long double s21_sqrt(double x) {
   long double guess = x;
   long double new_guess;
@@ -86,8 +82,6 @@ long double s21_sqrt(double x) {
   }
   return guess;
 }
-
-
 
 long double s21_tan(double x) {
   long double res = s21_sin(x) / s21_cos(x);
