@@ -14,6 +14,5 @@ long double s21_tan(double x);
 long double s21_atan(double x);
 long double s21_asin(double x);
 long double s21_sqrt(double x);
-long double s21_asin(double x);
 
 #endif
